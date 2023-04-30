@@ -80,7 +80,7 @@ def parse_command(command):
 def main():
     print(hello_user())
     while True:
-        command_line = input('Please enter command and args: ').strip()
+        command_line = input('Please enter command and args: ').strip().lower()
         command_name, command_args = parse_command(command_line)
         if command_name in HANDLERS:
             try:
