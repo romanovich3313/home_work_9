@@ -1,6 +1,6 @@
-import classes
+from classes import Name, Phone, AddressBook, Record
 
-USERS = {}
+USERS = AddressBook()
 
 
 def error_handler(func):
@@ -24,7 +24,11 @@ def hello_user():
 
 @error_handler
 def add_contact(name, phone):
-    USERS[name] = phone
+    name = Name(name)
+    phone = Phone(phone)
+    record = Record(name, phone)
+    USERS.add_record(record)
+    # USERS[name] = phone
     return f"User {name} added"
 
 

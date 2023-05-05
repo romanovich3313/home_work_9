@@ -7,7 +7,7 @@ class AddressBook(UserDict):
 
 
 class Record:
-    def __init__(self, name, phone=None):
+    def __init__(self, name, phone):
         self.name = Name(name)
         self.phone = []
 
