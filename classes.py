@@ -7,33 +7,41 @@ class AddressBook(UserDict):
 
 
 class Record:
-    def __init__(self, name):
+    def __init__(self, name, phone=None):
         self.name = Name(name)
-        self.phones = []
+        self.phone = []
 
     def add_phone(self, phone):
-        self.phones.append(phone)
+        self.phone.append(phone)
 
     def remove_phone(self, phone):
-        self.phones.remove(phone)
+        self.phone.remove(phone)
 
     def change_phone(self, old_phone, new_phone):
-        old_index = self.phones.index(old_phone)
-        self.phones[old_index] = new_phone           
+        old_index = self.phone.index(old_phone)
+        self.phone[old_index] = new_phone           
 
 
 class Field:
+    def __init__(self, value):
+        self.value = value
+
+
+class Name(Field):
     pass
-
-
-class Name:
-    def __init__(self, name):
-        self.name = name
         
 
 
-class Phone:
+class Phone(Field):
     pass
 
 
 
+book = AddressBook()
+
+record = Record('roma')
+record.add_phone('23343434')
+record.add_phone('23343434')
+record.add_phone('49586548')
+
+book.add_record(record)
